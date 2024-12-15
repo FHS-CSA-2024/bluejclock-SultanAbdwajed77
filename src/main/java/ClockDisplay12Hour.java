@@ -1,6 +1,6 @@
 package src.main.java;
 
-public class ClockDisplay12Hour extends ClockDisplay {
+public class ClockDisplay12Hour{
     private String ampm;  // "AM" or "PM"
 
     public ClockDisplay12Hour() {
