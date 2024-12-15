@@ -1,3 +1,4 @@
+package src.main.java;
 
 public class ClockDriver {
     public static void main(String[] args) {
@@ -35,6 +36,12 @@ public class ClockDriver {
         System.out.println("Set time to 03:32 AM: " + clock12Hour.readTime());
         clock12Hour.tick();
         System.out.println("After tick 03:32 AM to 03:33 AM: " + clock12Hour.readTime());
+        clock12Hour.setTime(11, 59);
+        clock12Hour.tick();
+        System.out.println("After tick 11:59 AM to 12:00 PM: " + clock12Hour.readTime());
+        clock12Hour.setTime(12, 0);
+        clock12Hour.tick();
+        System.out.println("After tick 12:00 PM to 12:01 PM: " + clock12Hour.readTime());
         clock12Hour.setTime(11, 59);
         clock12Hour.tick();
         System.out.println("After tick 11:59 AM to 12:00 PM: " + clock12Hour.readTime());
