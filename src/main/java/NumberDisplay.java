@@ -1,4 +1,4 @@
-
+package src.main.java;
 
 public class NumberDisplay {
     private int value;
