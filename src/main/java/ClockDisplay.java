@@ -1,36 +1,49 @@
+package src.main.java;
 
-public class ClockDisplay {
-    private NumberDisplay hours;
-    private NumberDisplay minutes;
+public class ClockDriver {
+    public static void main(String[] args) {
+        // Test ClockDisplay
+        System.out.println("ClockDisplay Tests:");
+        ClockDisplay clock = new ClockDisplay();
+        System.out.println("Initial time: " + clock.readTime());
+        clock.setTime(3, 32);
+        System.out.println("Set time to 03:32: " + clock.readTime());
+        clock.tick();
+        System.out.println("After tick: " + clock.readTime());
+        clock.setTime(1, 59);
+        clock.tick();
+        System.out.println("After tick 01:59 to 02:00: " + clock.readTime());
+        clock.setTime(23, 59);
+        clock.tick();
+        System.out.println("After tick 23:59 to 00:00: " + clock.readTime());
 
-    public ClockDisplay() {
-        hours = new NumberDisplay(24); // Hours range from 0 to 23
-        minutes = new NumberDisplay(60); // Minutes range from 0 to 59
-    }
+        // Test ClockDisplaySeconds
+        System.out.println("\nClockDisplaySeconds Tests:");
+        ClockDisplaySeconds clockSeconds = new ClockDisplaySeconds();
+        System.out.println("Initial time: " + clockSeconds.readTime());
+        clockSeconds.setTime(3, 32, 59);
+        System.out.println("Set time to 03:32:59: " + clockSeconds.readTime());
+        clockSeconds.tick();
+        System.out.println("After tick 03:32:59 to 03:33:00: " + clockSeconds.readTime());
+        clockSeconds.setTime(1, 59, 59);
+        clockSeconds.tick();
+        System.out.println("After tick 01:59:59 to 02:00:00: " + clockSeconds.readTime());
 
-    public ClockDisplay(int hour, int minute) {
-        hours = new NumberDisplay(24);
-        minutes = new NumberDisplay(60);
-        setTime(hour, minute);
-    }
-
-    public void setTime(int hour, int minute) {
-        if (hour >= 0 && hour < 24) {
-            hours.setValue(hour);
-        }
-        if (minute >= 0 && minute < 60) {
-            minutes.setValue(minute);
-        }
-    }
-
-    public String readTime() {
-        return hours.getDisplayValue() + ":" + minutes.getDisplayValue();
-    }
-
-    public void tick() {
-        minutes.increment();
-        if (minutes.getValue() == 0) {
-            hours.increment();
-        }
+        // Test ClockDisplay12Hour (Challenge)
+        System.out.println("\nClockDisplay12Hour Tests:");
+        ClockDisplay12Hour clock12Hour = new ClockDisplay12Hour();
+        clock12Hour.setTime(3, 32);
+        System.out.println("Set time to 03:32 AM: " + clock12Hour.readTime());
+        clock12Hour.tick();
+        System.out.println("After tick 03:32 AM to 03:33 AM: " + clock12Hour.readTime());
+        clock12Hour.setTime(11, 59);
+        clock12Hour.tick();
+        System.out.println("After tick 11:59 AM to 12:00 PM: " + clock12Hour.readTime());
+        clock12Hour.setTime(12, 0);
+        clock12Hour.tick();
+        System.out.println("After tick 12:00 PM to 12:01 PM: " + clock12Hour.readTime());
+        clock12Hour.setTime(11, 59);
+        clock12Hour.tick();
+        System.out.println("After tick 11:59 AM to 12:00 PM: " + clock12Hour.readTime());
     }
 }
