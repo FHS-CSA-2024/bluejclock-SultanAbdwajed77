@@ -15,33 +15,4 @@ public class ClockDisplay {
         setTime(hour, minute);
     }
 
-    public void setTime(int hour, int minute) {
-        if (hour >= 0 && hour < 24) {
-            hours.setValue(hour);
-        }
-        if (minute >= 0 && minute < 60) {
-            minutes.setValue(minute);
-        }
-    }
-
-    public String readTime() {
-        return hours.getDisplayValue() + ":" + minutes.getDisplayValue();
-    }
-
-    public void tick() {
-        minutes.increment();
-        if (minutes.getValue() == 0) {
-            hours.increment();
-        }
-    }
-
-    // Getter for hours, needed for ClockDisplay12Hour
-    public NumberDisplay getHours() {
-        return hours;
-    }
-
-    // Getter for minutes, needed for ClockDisplay12Hour
-    public NumberDisplay getMinutes() {
-        return minutes;
-    }
-}
+   
